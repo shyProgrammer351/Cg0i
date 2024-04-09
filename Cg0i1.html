@@ -1,55 +1,80 @@
-<html> 	<head> 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7250753558435816" crossorigin="anonymous"></script> 		<link rel="stylesheet" href="../reading/layout.css"> 		<script type="text/javascript" src="../reading/functions.js"></script> 		<script type="text/javascript" src="../reading/C1001.js"></script> 		<script type="text/javascript" src="./../../OneDrive_Web_js/C1001.js"></script> 	</head> 	<body onload='f2();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		<div id = "container"> 			<div id = "titleBox"> 				 C 프로그래밍  			</div> 			<div id = "navigationBox"></div>  			<div id = "contentBox"> 				<h4>문제</h4> 				<pre style='white-space:normal;'>사용자가 입력한 두 이름이 같은 성인지 다른 성인지 판단하는 문제입니다 이를 해결하는 다음 프로그램을 해석하세요 </pre> 				<pre class='selectable'>A양, 이름을 입력하세요: <b><font color='red'>허난설헌</font></b>
-B군, 이름을 입력하세요: <b><font color='red'>허균</font></b>
-허난설헌과 허균은 성이 같습니다.
-</pre><br><pre class='selectable'>A양, 이름을 입력하세요: <b><font color='red'>신사임당</font></b>
-B군, 이름을 입력하세요: <b><font color='red'>왕건</font></b>
-신사임당과 왕건은 성이 다릅니다.
-</pre><br><pre class='selectable'>A양, 이름을 입력하세요: <b><font color='red'>김만덕</font></b>
-B군, 이름을 입력하세요: <b><font color='red'>김유신</font></b>
-김만덕과 김유신은 성이 같습니다.
-</pre><br> 	  				<h4>알고리즘</h4> 				<pre style='white-space:normal;'>프로그램시작 <br>&nbsp; &nbsp;이름 2개를 입력 <br>&nbsp; &nbsp;이름에서 첫 음절(2byte)을 비교하기 <br>&nbsp; &nbsp;&nbsp; &nbsp;첫 음절이 같으면 성이 같습니다 출력 <br>&nbsp; &nbsp;&nbsp; &nbsp;첫 음절이 다르면 성이 다릅니다 출력 <br>프로그램 종료 <br></pre> 		 				<br><h4>프로그램 코드 <input id='btn' type='button' value='실행순서 및 메모리상태 확인' onclick='f5();'/></h4>  				<div id = "codeBox"><pre id="code0" class="unselectable codeClass">	<font color="green">// 파일명 : ./Chapter05/FamilyName.c</font> 
-</pre>
-<pre id="code" class="unselectable codeClass"> 	#include &lt;stdio.h&gt; 
-</pre>
-<pre id="code" class="unselectable codeClass"> 	#include &lt;<font color='red' title="">string.h</font>> 				 
-</pre><pre id="code0" class="unselectable codeClass">	 
-</pre><pre id="code0" class="unselectable codeClass">	<font color="green">//<b> 프로그램시작 </b></font>
-</pre>
-<pre id="code1" class="unselectable codeClass">1	int main() 
-</pre><pre id="code0" class="unselectable codeClass">	{ 
-</pre><pre id="code0" class="unselectable codeClass">		<font color="green">// 한 칸당 최대 10byte 문자열을 저장할 수 있는 배열을 선언  // [주석포함]</font>  
-</pre><pre id="code0" class="unselectable codeClass">		char nameA<font color='red' title="한 칸당 최대 10byte 문자열을 저장할 수 있는 1차원 배열을 선언">[10]</font> = <font color='red' title="">{</font> <font color='red' title="">'\0'</font> <font color='red' title="">}</font>;					 
-</pre>
-<pre id="code2" class="unselectable codeClass">2		char nameB<font color='red' title="한 칸당 최대 10byte 문자열을 저장할 수 있는 1차원 배열을 선언">[10]</font> = <font color='red' title="">{</font> <font color='red' title="">'\0'</font> <font color='red' title="">}</font>;					 
-</pre><pre id="code0" class="unselectable codeClass">		 
-</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 이름 2개를 입력  </b></font>
-</pre><pre id="code0" class="unselectable codeClass">		printf( "A양, 이름을 입력하세요: " ); 
-</pre><pre id="code0" class="unselectable codeClass">		<font color="green">// 허    난    설    헌   \0을 입력한다고 가정</font> 
-</pre>
-<pre id="code3" class="unselectable codeClass">3		scanf( "%s", nameA ); 
-</pre><pre id="code0" class="unselectable codeClass">		printf( "B군, 이름을 입력하세요: " ); 
-</pre><pre id="code0" class="unselectable codeClass">		<font color="green">// 허    균   \0을 입력한다고 가정</font> 
-</pre>
-<pre id="code4" class="unselectable codeClass">4		scanf( "%s", nameB ); 
-</pre><pre id="code0" class="unselectable codeClass">	 
-</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 이름에서 첫 음절(2byte)을 비교하기 </b></font>
-</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 첫 음절이 같으면 성이 같습니다 출력 </b></font>
-</pre>
-<pre id="code5" class="unselectable codeClass">5		if ( <font color='red' title="">!</font><font color='red' title="">strncmp</font>( nameA, nameB, <font color='red' title="왼쪽문자열과 오른쪽문자열의 한글 1글자(2byte)만큼만 비교한다는 의미">2</font> ) )				 
-</pre><pre id="code0" class="unselectable codeClass">		{ 
-</pre>
-<pre id="code6" class="unselectable codeClass">6			printf( "%s과 %s은 성이 같습니다. ", nameA, nameB ); 
-</pre><pre id="code0" class="unselectable codeClass">		} 
-</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 첫 음절이 다르면 성이 다릅니다 출력 </b></font>
-</pre>
-<pre id="code7" class="unselectable codeClass">7		else 
-</pre><pre id="code0" class="unselectable codeClass">		{ 
-</pre>
-<pre id="code8" class="unselectable codeClass">8			printf( "%s과 %s은 성이 다릅니다. ", nameA, nameB ); 
-</pre><pre id="code0" class="unselectable codeClass">		} 
-</pre><pre id="code0" class="unselectable codeClass">		 
-</pre><pre id="code0" class="unselectable codeClass">		<font color="green">//<b> 프로그램 종료 </b></font>
-</pre>
-<pre id="code9" class="unselectable codeClass">9		return 0; 
-</pre><pre id="code0" class="unselectable codeClass">	} 
-</pre></div>	 	 				<br><h4>키워드 설명</h4> 				<pre id = "d3" style='white-space:normal;'></pre> 			 				<h4>실행 순서</h4> 				<pre id = "d4" style='white-space:normal; width:800px;'> </pre> 				<pre style='white-space:normal;'> 					※ 실행순서 및 메모리상태는 A키(이전)및 D키(다음)를 눌러도 확인할 수 있습니다  				</pre> 				<br><br> 			</div> 			<div id = "floatingBox"> 				<pre id = "outputBox" class ="outputBox" style = "height:46.8px;width:261px;padding:10px;margin:0px;"></pre>  				<div id = "intermediateResult"> 					<img id = "d7"> 					<table style = "border-spacing:0px;margin:0px;table-layout:auto;"> 						<tbody id = "d8"></tbody> 					</table> 				</div> 			</div> 		</div> 	</body> </html> 
+<html>
+<head> 		
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 		
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7250753558435816" crossorigin="anonymous">
+</script> 		
+<link rel="stylesheet" href="../layout.css"> 		
+</head> 	
+<body onload='f1();' onkeydown='f4()' oncontextmenu="return false" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false" draggable="false" ondragstart="return false" ondrop="return false"> 		
+<div id = "container"> 			
+<div id = "titleBox"> C 프로그래밍 
+</div> 			
+<div id = "navigationBox">
+<ol>
+<li>
+<a href='../Cf1i/Cf1i1.html'>출력
+</a>
+</li>
+<li>
+<a href='../Cf2i/Cf2i1.html'>입력
+</a>
+</li>
+<li>
+<a href='../Cf3i/Cf3i1.html'>변수/연산자
+</a>
+</li>
+<li>
+<a href='../Cf4i/Cf4i1.html'>선택문(삼항연산자/switch)
+</a>
+</li>
+<li>
+<a href='../Cf5i/Cf5i1.html'>선택문(if)
+</a>
+</li>
+<li>
+<a href='../Cf6i/Cf6i1.html'>반복문(while)
+</a>
+</li>
+<li>
+<a href='../Cf7i/Cf7i1.html'>반복문(for)
+</a>
+</li>
+<li>
+<a href='../Cf8i/Cf8i1.html'>배열
+</a>
+</li>
+<li>
+<a href='../Cf9i/Cf9i1.html'>문자열
+</a>
+</li>
+<li>
+<a href='../Cg0i/Cg0i1.html'>함수
+</a>
+</li>
+<li>
+<a href='../Cg1i/Cg1i1.html'>포인터
+</a>
+</li>
+<li>
+<a href='../Cg2i/Cg2i1.html'>파일입출력
+</a>
+</li>
+<li>
+<a href='../Cg3i/Cg3i1.html'>구조체/열거형/동적할당
+</a>
+</li>
+<li>
+<a href='../Cg4i/Cg4i1.html'>함수자료전달
+</a>
+</li>
+<li>
+<a href='../Cg5i/Cg5i1.html'>전처리기/파일분할
+</a>
+</li>
+</ol>
+</div>  			
+<div id = "contentBox"> 			
+	준비중입니다 
+</div> 	
+</body> 
+</html> 
